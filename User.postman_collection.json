@@ -1,0 +1,198 @@
+{
+	"info": {
+		"_postman_id": "962b7ca8-8581-402c-ad33-a54002220e2b",
+		"name": "User",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36524440"
+	},
+	"item": [
+		{
+			"name": "SignIn",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"pawanPandit\",\r\n    \"email\":\"pawanPandit9834@gmail.com\",\r\n    \"password\":\"Pawan123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v2/user/signIn",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v2",
+						"user",
+						"signIn"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"pawanPandit\",\r\n    \"email\":\"pawanPandit9834@gmail.com\",\r\n    \"password\":\"Pawan123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v2/user/signIn",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v2",
+						"user",
+						"signIn"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createTodo",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Backend of todo is completed\",\r\n  \"category\": \"Work\",\r\n  \"priority\": \"medium\",\r\n  \"deadline\": \"2025-01-10\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/todos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"todos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch all todos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/todos/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"todos",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update Todo",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Backend of todo in nextjs\",\r\n  \"category\": \"Other\",\r\n  \"priority\": \"high\",\r\n  \"deadline\": \"2025-01-6\",\r\n  \"completed\":true\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/todos/67766d0bda5ed67d28d1494f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"todos",
+						"67766d0bda5ed67d28d1494f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete Todo",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/todos/67766ddde9dc7164c524d912",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"todos",
+						"67766ddde9dc7164c524d912"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
