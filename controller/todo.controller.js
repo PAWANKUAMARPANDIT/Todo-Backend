@@ -95,4 +95,88 @@ const deleteTodo = async (req, res) => {
   }
 };
 
-export { createTodo, allTodos, updateTodo, deleteTodo };
+const filterByCategory = async (req, res) => {
+  const { category } = req.query;
+
+  if (!category) {
+    return res.status(400).json({ message: "Category is required for filtering" });
+  }
+
+  try {
+    const todos = await Todo.find({ category });
+    res.status(200).json({ message: "Filtered by category", data: todos });
+  } catch (err) {
+    console.error("Error filtering by category:", err);
+    res.status(500).json({ message: err.message });
+  }
+};
+
+const filterByPriority = async (req, res) => {
+  const { priority } = req.query;
+
+  if (!priority) {
+    return res.status(400).json({ message: "Priority is required for filtering" });
+  }
+
+  try {
+    const todos = await Todo.find({ priority });
+    res.status(200).json({ message: "Filtered by priority", data: todos });
+  } catch (err) {
+    console.error("Error filtering by priority:", err);
+    res.status(500).json({ message: err.message });
+  }
+};
+
+
+const filterByDeadline = async (req, res) => {
+  const { deadline } = req.query;
+
+  if (!deadline) {
+    return res.status(400).json({ message: "Deadline is required for filtering" });
+  }
+
+  const deadlineDate = new Date(deadline);
+  if (isNaN(deadlineDate)) {
+    return res.status(400).json({ message: "Invalid date format for deadline" });
+  }
+
+  try {
+    const todos = await Todo.find({ deadline: { $lte: deadlineDate } });
+    res.status(200).json({ message: "Filtered by deadline", data: todos });
+  } catch (err) {
+    console.error("Error filtering by deadline:", err);
+    res.status(500).json({ message: err.message });
+  }
+};
+
+
+const filterByCompleted = async (req, res) => {
+  const { completed } = req.query;
+
+  if (completed === undefined) {
+    return res.status(400).json({ message: "Completed status is required for filtering" });
+  }
+
+  const completedStatus = completed === 'true';
+
+  try {
+    const todos = await Todo.find({ completed: completedStatus });
+    res.status(200).json({ message: "Filtered by completed status", data: todos });
+  } catch (err) {
+    console.error("Error filtering by completed status:", err);
+    res.status(500).json({ message: err.message });
+  }
+};
+
+
+
+export { 
+    createTodo, 
+    allTodos, 
+    updateTodo, 
+    deleteTodo , 
+    filterByCategory, 
+    filterByPriority, 
+    filterByDeadline,
+    filterByCompleted 
+};
